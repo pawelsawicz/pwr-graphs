@@ -9,49 +9,48 @@ namespace pwr_graphs.test
     [TestFixture]
     public class BellmanFordTest
     {
-
-    }
+        [Test]
+        public void GivenCollectionOfEdgesThenCalculateTotalPositiveCost()
+        {
+            var edges = new List<Edge>();
+            edges.Add(new Edge(1,2,5));
+            edges.Add(new Edge(1,3,5));
+            edges.Add(new Edge(1,0,5));
+            edges.Add(new Edge(0,2,5));
+            
+            var bellmanford = new BellmanFord();           
+               
+        }
+    }     
 
     public class BellmanFord
     {
-        public List<edge> Edge = new List<edge>();
-        public int V;
-        
-        public class edge
-        {
-            public int from, to, cost;
+        public List<Edge> Edges = new List<Edge>();
+        public int V;  
 
-            public edge(int _from, int _to, int _cost)
-            {
-                from = _from;
-                to = _to;
-                cost = _cost;
-            }
-        }
-
-        private int GetTotalPositiveCost()
+        public int GetTotalPositiveCost()
         {
             int sum = 0;
-            foreach (var e in Edge)
+            foreach (var e in Edges)
             {
-                if (e.cost > 0) sum += e.cost;
+                if (e.Length > 0) sum += (int)e.Length;
             }
             return sum;
         }
 
         private void generateV()
         {
-            foreach (var e in Edge)
+            foreach (var e in Edges)
             {
-                V = Math.Max(V, e.from);
-                V = Math.Max(V, e.to);
+                V = Math.Max(V, e.FirstVertex);
+                V = Math.Max(V, e.SecondVertex);
             }
             V++;
         }
         
         public int[] GetShortestPath(int startIndex)
         {
-            if (V == 0 && Edge.Count > 0) generateV();
+            if (V == 0 && Edges.Count > 0) generateV();
 
             int[] shortestPath = new int[V];
             int INF = this.GetTotalPositiveCost() + 1;
@@ -62,11 +61,11 @@ namespace pwr_graphs.test
             while (true)
             {
                 bool update = false;
-                foreach (edge e in Edge)
+                foreach (var e in Edges)
                 {
-                    if (shortestPath[e.from] != INF && shortestPath[e.to] > shortestPath[e.from] + e.cost)
+                    if (shortestPath[e.FirstVertex] != INF && shortestPath[e.SecondVertex] > shortestPath[e.FirstVertex] + e.Length)
                     {
-                        shortestPath[e.to] = shortestPath[e.from] + e.cost;
+                        shortestPath[e.SecondVertex] = shortestPath[e.FirstVertex] + (int)e.Length;
                         update = true;
                     }
                 }
@@ -81,11 +80,11 @@ namespace pwr_graphs.test
             int[] d = new int[V];
             for (int i = 0; i < V; i++)
             {
-                foreach (edge e in Edge)
+                foreach (var e in Edges)
                 {
-                    if (d[e.to] > d[e.from] + e.cost)
+                    if (d[e.SecondVertex] > d[e.FirstVertex] + (int)e.Length)
                     {
-                        d[e.to] = d[e.from] + e.cost;
+                        d[e.SecondVertex] = d[e.FirstVertex] + (int)e.Length;
                         if (i == V - 1) return true;
                     }
                 }
