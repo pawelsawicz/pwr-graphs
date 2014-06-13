@@ -27,7 +27,7 @@ namespace pwr_graphs.test
         public void GivenUndirectWeightedGraphThenReturnMTS()
         {
             var kruskal = new Kruskal(_vertex);
-
+            var expectedEdges = new Edge[3];
 
             Assert.AreEqual(1, kruskal.Result);
         }
