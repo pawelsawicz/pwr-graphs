@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pwr-graphs", "pwr-graphs\pwr-graphs.csproj", "{639530BB-3B5D-4D3F-9B2D-C1C64CAA37DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pwr-graphs.test", "pwr-graphs.test\pwr-graphs.test.csproj", "{72C33911-AF94-44B1-8E6C-72D6185A8867}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{639530BB-3B5D-4D3F-9B2D-C1C64CAA37DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639530BB-3B5D-4D3F-9B2D-C1C64CAA37DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639530BB-3B5D-4D3F-9B2D-C1C64CAA37DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639530BB-3B5D-4D3F-9B2D-C1C64CAA37DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C33911-AF94-44B1-8E6C-72D6185A8867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C33911-AF94-44B1-8E6C-72D6185A8867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C33911-AF94-44B1-8E6C-72D6185A8867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C33911-AF94-44B1-8E6C-72D6185A8867}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
