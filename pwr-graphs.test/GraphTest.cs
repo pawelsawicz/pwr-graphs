@@ -209,4 +209,5 @@ namespace pwr_graphs.test
             get { return _numberOfEdges; }
         }
     }
+    
 }
